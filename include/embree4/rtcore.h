@@ -11,4 +11,5 @@
 #include "rtcore_geometry.h"
 #include "rtcore_scene.h"
 #include "rtcore_builder.h"
+#include "rtcore_scene_bvh.h"
 #include "rtcore_quaternion.h"

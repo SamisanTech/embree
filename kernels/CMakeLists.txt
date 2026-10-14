@@ -41,6 +41,7 @@ SET(EMBREE_LIBRARY_FILES
   common/state.cpp
   common/rtcore.cpp
   common/rtcore_builder.cpp
+  common/scene_bvh_export.cpp
   common/scene.cpp
   common/scene_verify.cpp
   common/alloc.cpp
