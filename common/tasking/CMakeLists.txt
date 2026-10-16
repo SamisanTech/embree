@@ -7,7 +7,7 @@ ELSEIF (TASKING_TBB)
   ##############################################################
   # Find TBB
   ##############################################################
-  if (NOT ${EMBREE_TBB_ROOT} STREQUAL "")
+  if(DEFINED EMBREE_TBB_ROOT AND NOT "${EMBREE_TBB_ROOT}" STREQUAL "")
     set(TBB_FIND_PACKAGE_OPTION "NO_DEFAULT_PATH")
     set(TBB_ROOT ${EMBREE_TBB_ROOT})
     list(APPEND CMAKE_PREFIX_PATH ${EMBREE_TBB_ROOT})
