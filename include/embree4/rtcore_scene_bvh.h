@@ -49,6 +49,18 @@ RTC_API bool rtcCollideTriangleScenes(RTCScene scene0, RTCScene scene1,
                                       const float* offset0, const float* offset1);
 
 /*
+ * Same walk as rtcCollideTriangleScenes, but each scene may carry a row-major
+ * 3x4 (rotation + translation). Null means identity. Triangle vertices stay in
+ * mesh-local space; the matrix is applied to bounds and leaf verts.
+ * ignore_xyz / ignore_radius (length ignore_count) are world-space spheres that
+ * skip scene1 triangles whose closest point lies inside the sphere. Null/0 = none.
+ */
+RTC_API bool rtcCollideTriangleScenesXform(RTCScene scene0, RTCScene scene1,
+                                           const float* xform0_3x4, const float* xform1_3x4,
+                                           const float* ignore_xyz, const float* ignore_radius,
+                                           unsigned ignore_count);
+
+/*
  * Export the committed scene's triangle BVH into a flat node array (allocates).
  * Prefer rtcCollideTriangleScenes for collide. Free with rtcFreeSceneBVH.
  */
